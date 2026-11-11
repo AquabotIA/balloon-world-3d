@@ -21,3 +21,6 @@ h1{font:900 clamp(58px,14vw,84px)/.82 'Barlow Condensed',sans-serif;letter-spaci
 #start-button span{font-size:18px}.start-foot{margin-top:45px;font-size:8px;letter-spacing:2px;color:#ffffffaa}.start-foot span{margin:0 8px}
 #loading{position:absolute;inset:0;z-index:10;display:grid;place-items:center;background:#79c8e4;color:#fff;font-size:10px;letter-spacing:3px;transition:opacity .4s}#loading.done{opacity:0;pointer-events:none}
 @media(min-width:700px){#game{max-width:480px;margin:auto;border-left:1px solid #ffffff55;border-right:1px solid #ffffff55}body{background:#1c4652}#hud{padding-left:22px;padding-right:22px}}
+
+#flight-status{position:absolute;z-index:2;top:137px;left:50%;transform:translateX(-50%);padding:8px 13px;display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:8px;letter-spacing:1px}
+#flight-status b{font-size:10px}.fuel-track{width:54px;height:5px;border-radius:9px;background:#ffffff55;overflow:hidden}.fuel-track i{display:block;width:100%;height:100%;background:#c8f39b;transition:width .2s}
