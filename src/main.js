@@ -3,13 +3,22 @@ import './style.css';
 
 const loading = document.querySelector('#loading');
 const altitudeLabel = document.querySelector('#altitude');
-const speedLabel = document.querySelector('#speed');\nconst windLabel = document.querySelector('#wind');\nconst fuelBar = document.querySelector('#fuel-bar');\nconst scoreLabel = document.querySelector('#score');\nconst missionLabel = document.querySelector('#mission-text');
+const speedLabel = document.querySelector('#speed');
+const windLabel = document.querySelector('#wind');
+const fuelBar = document.querySelector('#fuel-bar');
+const scoreLabel = document.querySelector('#score');
+const missionLabel = document.querySelector('#mission-text');
 const startScreen = document.querySelector('#start-screen');
 const controls = { up:false, down:false, left:false, right:false };
 let started = false;
 let verticalVelocity = 0;
 let heading = 0;
-let horizontalSpeed = 0;\nlet fuel = 100;\nlet score = 0;\nlet checkpointIndex = 0;\nconst windStrength = 2.2;\nlet windDirection = 0;
+let horizontalSpeed = 0;
+let fuel = 100;
+let score = 0;
+let checkpointIndex = 0;
+const windStrength = 2.2;
+let windDirection = 0;
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x8bd1e9);
@@ -64,7 +73,14 @@ for(const x of [-.32,.32])for(const z of [-.32,.32]){
  const rope=new THREE.Mesh(new THREE.CylinderGeometry(.018,.018,1.15,6),ropeMat);rope.position.set(x,.25,z);balloon.add(rope);
 }
 const burner=new THREE.PointLight(0xffa13a,2,5);burner.position.y=.45;balloon.add(burner);
-balloon.position.set(0,5,0);\n\nconst checkpoint = new THREE.Group();\nconst checkpointRing = new THREE.Mesh(new THREE.TorusGeometry(3.2,.16,12,48),new THREE.MeshStandardMaterial({color:0xffd36d,emissive:0x9b5d13,emissiveIntensity:1.2,roughness:.3}));\ncheckpoint.add(checkpointRing);\nconst checkpointCore = new THREE.Mesh(new THREE.SphereGeometry(.28,16,12),new THREE.MeshBasicMaterial({color:0xffffff}));\ncheckpoint.add(checkpointCore);\ncheckpoint.position.set(0,13,-58);scene.add(checkpoint);
+balloon.position.set(0,5,0);
+
+const checkpoint = new THREE.Group();
+const checkpointRing = new THREE.Mesh(new THREE.TorusGeometry(3.2,.16,12,48),new THREE.MeshStandardMaterial({color:0xffd36d,emissive:0x9b5d13,emissiveIntensity:1.2,roughness:.3}));
+checkpoint.add(checkpointRing);
+const checkpointCore = new THREE.Mesh(new THREE.SphereGeometry(.28,16,12),new THREE.MeshBasicMaterial({color:0xffffff}));
+checkpoint.add(checkpointCore);
+checkpoint.position.set(0,13,-58);scene.add(checkpoint);
 
 const ring=new THREE.Mesh(new THREE.TorusGeometry(2.2,.018,8,64),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.24}));
 ring.rotation.x=Math.PI/2;ring.position.y=-8.8;scene.add(ring);
@@ -110,7 +126,8 @@ function animate(){
   camera.lookAt(0,5,0);
  }
  clouds.forEach((c,i)=>{c.position.x+=dt*(.25+(i%3)*.08);if(c.position.x>110)c.position.x=-110;});
- burner.intensity=(controls.up&&fuel>0?2.8:0.8)+Math.sin(t*12)*.25;\n burner.visible=fuel>0;
+ burner.intensity=(controls.up&&fuel>0?2.8:0.8)+Math.sin(t*12)*.25;
+ burner.visible=fuel>0;
  renderer.render(scene,camera);
 }
 animate();
