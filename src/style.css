@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+:root{font-family:'DM Sans',sans-serif;color:#fff;background:#8bd0e8;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{overscroll-behavior:none}button{font:inherit}#game{position:relative;width:100%;height:100%;height:100dvh;overflow:hidden;background:linear-gradient(#77c9e8,#d8f0ed 65%,#80b98b)}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#hud{position:absolute;z-index:2;top:0;left:0;right:0;padding:calc(env(safe-area-inset-top) + 17px) 18px 0;display:flex;align-items:flex-start;justify-content:space-between;pointer-events:none}
+.brand{display:flex;gap:9px;align-items:center;text-shadow:0 2px 12px #28566a55}.brand-mark{font-size:27px;color:#fff}.brand strong{display:block;font:800 16px 'Barlow Condensed',sans-serif;letter-spacing:1.3px}.brand small,.telemetry small{display:block;font-size:8px;letter-spacing:1.6px;opacity:.8}
+.telemetry{display:flex;gap:14px;text-align:right}.telemetry strong{display:block;font:700 21px 'Barlow Condensed',sans-serif;text-shadow:0 2px 8px #28566a55}
+.glass{background:#174d5b38;border:1px solid #ffffff55;backdrop-filter:blur(12px);border-radius:30px}
+#mission{position:absolute;top:94px;left:50%;transform:translateX(-50%);z-index:2;padding:9px 15px;white-space:nowrap;font-size:9px;letter-spacing:1.5px;font-weight:700}
+#mission small{margin-left:8px;opacity:.75;font-size:8px}.live-dot{display:inline-block;width:6px;height:6px;background:#bafc9c;border-radius:50%;margin-right:7px;box-shadow:0 0 10px #bafc9c}
+#crosshair{position:absolute;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff9;font-size:18px;text-shadow:0 1px 6px #315}
+#controls{position:absolute;z-index:3;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 42px);display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px;pointer-events:none}
+.vertical-controls,.horizontal-controls{display:flex;gap:10px;pointer-events:auto}.vertical-controls{flex-direction:column}.horizontal-controls{padding-bottom:0}
+.control{width:58px;height:58px;border-radius:20px;border:1px solid #ffffff80;background:#ffffff35;color:white;font-size:27px;font-weight:500;backdrop-filter:blur(10px);box-shadow:0 7px 22px #174b5b25;touch-action:none;user-select:none;-webkit-user-select:none}
+.control:active,.control.active{background:#fff8;color:#286277;transform:scale(.96)}
+#hint{position:absolute;z-index:2;bottom:calc(env(safe-area-inset-bottom) + 14px);left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:1.6px;white-space:nowrap;color:#fff;text-shadow:0 1px 6px #244}
+#start-screen{position:absolute;inset:0;z-index:5;display:flex;align-items:center;padding:0 28px;background:linear-gradient(90deg,#174b5b99,#174b5b16 100%);transition:opacity .7s,visibility .7s}
+#start-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}.start-content{max-width:390px;margin-top:60px;text-shadow:0 2px 20px #174b5b55}.eyebrow{font-size:9px;letter-spacing:3px;font-weight:700;color:#e1f9ff}
+h1{font:900 clamp(58px,14vw,84px)/.82 'Barlow Condensed',sans-serif;letter-spacing:-1px;margin:18px 0 20px}h1 em{font-style:normal;color:#ffe4a3} .start-content p{font-size:13px;line-height:1.6;max-width:265px;color:#f0fbff;margin-bottom:27px}
+#start-button{border:0;border-radius:3px;background:#ffcf78;color:#183e49;padding:16px 22px;font:800 12px 'Barlow Condensed',sans-serif;letter-spacing:1.8px;min-width:190px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 24px #163f4a44}
+#start-button span{font-size:18px}.start-foot{margin-top:45px;font-size:8px;letter-spacing:2px;color:#ffffffaa}.start-foot span{margin:0 8px}
+#loading{position:absolute;inset:0;z-index:10;display:grid;place-items:center;background:#79c8e4;color:#fff;font-size:10px;letter-spacing:3px;transition:opacity .4s}#loading.done{opacity:0;pointer-events:none}
+@media(min-width:700px){#game{max-width:480px;margin:auto;border-left:1px solid #ffffff55;border-right:1px solid #ffffff55}body{background:#1c4652}#hud{padding-left:22px;padding-right:22px}}
